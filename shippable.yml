@@ -8,3 +8,6 @@ build:
     - pip install --upgrade pip wheel
     - pip install pep8 pylint
     - ./style.sh
+    - pip install coverage unittest-xml-reporting
+    - coverage run ./test.py --xml=shippable/testresult/testresult.xml
+    - find ./ -name "*.py" | xargs coverage xml -o shippable/codecoverage/coverage.xml
