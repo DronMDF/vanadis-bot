@@ -7,9 +7,7 @@ from unittest import TestLoader, TextTestRunner
 
 
 def createTestRunner():
-	print(sys.argv)
 	opts, _ = getopt(sys.argv[1:], '', ['xml='])
-	print(opts)
 	for o, v in opts:
 		if o == '--xml':
 			from xmlrunner import XMLTestRunner
