@@ -4,7 +4,13 @@ class Issue:
 		self.message = message
 
 	def __eq__(self, other):
-		return (self.location, self.message) == (other.location, other.message)
+		return all((self.location == other.location, self.message == other.message))
+
+	def __repr__(self):
+		return 'Issue(%s, "%s")' % (repr(self.location), self.message)
+
+	def __str__(self):
+		return '%s: %s' % (self.location, self.message)
 
 	def print(self, stream):
 		stream.write(location=self.location)
