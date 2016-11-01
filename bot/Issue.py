@@ -5,3 +5,7 @@ class Issue:
 
 	def __eq__(self, other):
 		return (self.location, self.message) == (other.location, other.message)
+
+	def print(self, stream):
+		stream.write(location=self.location)
+		stream.write(message=self.message)
