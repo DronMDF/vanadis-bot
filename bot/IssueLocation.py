@@ -21,4 +21,5 @@ class IssueLocation:
 	def print(self, stream):
 		stream.write(file=self.file)
 		stream.write(line=self.line)
-		stream.write(position=self.position)
+		if self.position is not None:
+			stream.write(position=self.position)

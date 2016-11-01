@@ -2,7 +2,7 @@ from unittest import TestCase
 from bot import IssueLocation
 
 
-class DictStream:
+class DataStream:
 	def __init__(self):
 		self.data = []
 
@@ -10,7 +10,7 @@ class DictStream:
 		assert len(args) == 1
 		k, v = args.popitem()
 		if hasattr(v, 'print'):
-			ss = DictStream()
+			ss = DataStream()
 			v.print(ss)
 			value = ss.data
 		else:
@@ -31,10 +31,19 @@ class TestIssueLocation(TestCase):
 
 	def testPrintToStream(self):
 		# Given
-		stream = DictStream()
+		stream = DataStream()
 		location = IssueLocation('a.txt', 123, 321)
 		# When
 		location.print(stream)
 		# Then
 		self.assertListEqual(stream.data,
 			[('file', 'a.txt'), ('line', 123), ('position', 321)])
+
+	def testPrintToStreamWithoutPosition(self):
+		# Given
+		stream = DataStream()
+		location = IssueLocation('b.txt', 777)
+		# When
+		location.print(stream)
+		# Then
+		self.assertListEqual(stream.data, [('file', 'b.txt'), ('line', 777)])
