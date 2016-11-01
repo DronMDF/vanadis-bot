@@ -17,3 +17,8 @@ class IssueLocation:
 		if self.position is None:
 			return '%s:%u' % (self.file, self.line)
 		return '%s:%u:%u' % (self.file, self.line, self.position)
+
+	def print(self, stream):
+		stream.write(file=self.file)
+		stream.write(line=self.line)
+		stream.write(position=self.position)
