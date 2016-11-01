@@ -1,6 +1,6 @@
 from unittest import TestCase
 from bot import IssueLocation
-from test.DataStream import DataStream
+from test import DataStream
 
 
 class TestIssueLocation(TestCase):
