@@ -5,7 +5,7 @@ from getopt import getopt
 import requests
 
 sys.path.append('.')
-from bot import IssueStream, Xml
+from bot import IssueStream, Xml	# pylint: disable=wrong-import-position
 
 logging.basicConfig(format='%(asctime)s %(message)s', datefmt='%d.%m %H:%M:%S')
 
