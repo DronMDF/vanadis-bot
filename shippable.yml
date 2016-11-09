@@ -6,7 +6,7 @@ python:
 build:
   ci:
     - pip install --upgrade pip wheel
-    - pip install pep8 pylint unittest-xml-reporting
+    - pip install pep8 pylint requests unittest-xml-reporting
     - ./style.sh
     - pip install coverage
     - coverage run ./test.py --xml=shippable/testresults/testresult.xml
