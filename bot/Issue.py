@@ -13,5 +13,7 @@ class Issue:
 		return '%s: %s' % (self.location, self.message)
 
 	def print(self, stream):
-		stream.write(location=self.location)
+		stream.write(line=self.location.line)
+		if self.location.position is not None:
+			stream.write(position=self.location.position)
 		stream.write(message=self.message)

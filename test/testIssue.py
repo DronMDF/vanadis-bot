@@ -20,5 +20,4 @@ class TestIssue(TestCase):
 		# When
 		issue.print(stream)
 		# Then
-		self.assertListEqual(stream.data,
-			[('location', [('file', 'a.txt'), ('line', 123)]), ('message', 'msg')])
+		self.assertListEqual(stream.data, [('line', 123), ('message', 'msg')])

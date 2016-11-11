@@ -5,7 +5,7 @@ from getopt import getopt
 import requests
 
 sys.path.append('.')
-from bot import IssueStream, Xml		# pylint: disable=wrong-import-position
+from bot import Report 		# pylint: disable=wrong-import-position
 
 logging.basicConfig(format='%(asctime)s %(message)s', datefmt='%d.%m %H:%M:%S')
 
@@ -23,11 +23,8 @@ for o, v in opts:
 		host = v
 
 for a in args:
-	stream = IssueStream(open(a, 'r'))
-	request = Xml('issues')
-	for i in stream:
-		request.write(issue=i)
+	report = Report(open(a, 'r'))
 	url = 'http://{0}/{1}/import/{2}'.format(host, project, revision)
-	r = requests.post(url, data=request.xml())
+	r = requests.post(url, data=report.xml())
 	if r.status_code != requests.codes.ok:		# pylint: disable=no-member
 		logging.error('Response http status code: %u', r.status_code)
