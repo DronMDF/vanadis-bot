@@ -14,4 +14,3 @@ class TestReport(TestCase):
 			'<position>30</position><message>warning: '
 			'implicit conversion</message></issue></file>')
 		self.assertIn(expected, report.xml())
-

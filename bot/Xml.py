@@ -1,5 +1,6 @@
 from xml.sax.saxutils import escape
 
+
 class Xml:
 	def __init__(self, root_tag='root'):
 		self.root_tag = root_tag
