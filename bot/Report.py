@@ -27,7 +27,6 @@ class Report:
 			file = File(f, ii)
 			request.write(file=file)
 		self.text = request.xml()
-		print(self.text[32500:32600])
 
 	def xml(self):
 		return self.text

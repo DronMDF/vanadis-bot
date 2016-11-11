@@ -29,3 +29,10 @@ class TestXml(TestCase):
 		media.write(printable=printable)
 		# Then
 		self.assertIn('<primitives><printable><printed>yes</printed></printa', media.xml())
+
+	def testEscape(self):
+		media = Xml('escaping')
+		# When
+		media.write(string='< & >')
+		# Then
+		self.assertIn('<escaping><string>&lt; &amp; &gt;</string></escaping>', media.xml())

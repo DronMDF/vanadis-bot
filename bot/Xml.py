@@ -1,3 +1,5 @@
+from xml.sax.saxutils import escape
+
 class Xml:
 	def __init__(self, root_tag='root'):
 		self.root_tag = root_tag
@@ -10,7 +12,7 @@ class Xml:
 		if hasattr(v, 'print'):
 			v.print(self)
 		else:
-			self.content.append(str(v))
+			self.content.append(escape(str(v)))
 		self.content.append('</%s>' % k)
 
 	def xml(self):
