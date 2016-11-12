@@ -1,7 +1,5 @@
-#!/bin/sh
+#!/bin/bash
 set -e
-find ./ -name "*.py" | xargs -r pep8 --show-source --max-line-length=100 --ignore=W191,E128
-find ./ -name "*.py" | xargs -r pylint --max-line-length=100 --indent-string="	" -fparseable \
-	-r no --const-rgx="[a-z][a-z0-9_]{0,30}$" --variable-rgx="[a-z][a-z0-9_]{0,30}$" \
-	--function-rgx="[a-z][a-zA-Z0-9]{0,30}$" --module-rgx="[a-zA-Z][a-zA-Z0-9]{0,30}$" \
-	--method-rgx="[a-z][a-zA-Z0-9]{0,30}$" -e all -d missing-docstring
+#PYTHONPATH=.
+find ./ -name "*.py" | xargs -r pep8 --show-source --max-line-length=100 --ignore=W191,E128,E402
+find ./ -name "*.py" | xargs -r pylint
