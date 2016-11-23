@@ -12,7 +12,7 @@ class Server:
 		if r.status_code != requests.codes.ok:		# pylint: disable=no-member
 			logging.error('Response http status code: %u', r.status_code)
 			raise RuntimeError('Request was failed')
-		return r
+		return r.text
 
 	def post(self, url, data):
 		logging.info('POST to %s %u bytes', self.base_url + url, len(data))
@@ -20,4 +20,4 @@ class Server:
 		if r.status_code != requests.codes.ok:		# pylint: disable=no-member
 			logging.error('Response http status code: %u', r.status_code)
 			raise RuntimeError('Request was failed')
-		return r
+		return r.text
