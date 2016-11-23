@@ -14,13 +14,14 @@ class File:
 
 
 class Report:
-	def __init__(self, instream):
+	def __init__(self, instream, filelist):
 		stream = IssueStream(instream)
 		files = dict()
 		for i in stream:
-			if i.location.file not in files:
-				files[i.location.file] = []
-			files[i.location.file].append(i)
+			filename = filelist.canonize(i.location.file)
+			if filename not in files:
+				files[filename] = []
+			files[filename].append(i)
 
 		request = Xml('files')
 		for f, ii in files.items():
