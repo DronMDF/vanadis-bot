@@ -1,5 +1,6 @@
 from .Xml import Xml
 
+from .Filelist import Filelist
 from .ImportRequest import ImportRequest
 from .Issue import Issue
 from .IssueLocation import IssueLocation

@@ -1,3 +1,3 @@
 class Filelist:
-	def canonize(filename):
+	def canonize(self, filename):
 		return filename
