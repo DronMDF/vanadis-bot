@@ -6,5 +6,5 @@ from .IssueLocation import IssueLocation
 from .IssueStream import IssueStream
 from .Report import Report
 from .RequestLogTime import RequestLogTime
-from .RequestPost import RequestPost
+from .RequestImport import RequestImport
 from .Server import Server

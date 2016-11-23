@@ -5,7 +5,7 @@ from getopt import getopt
 
 sys.path.append('.')
 # pylint: disable=wrong-import-position
-from bot import (Report, RequestLogTime, RequestPost, Server)
+from bot import (Report, RequestImport, RequestLogTime, Server)
 
 logging.basicConfig(format='%(asctime)s %(message)s', datefmt='%d.%m %H:%M:%S', level=logging.INFO)
 
@@ -27,9 +27,5 @@ server = Server(host, project)
 for a in args:
 	report = Report(open(a, 'r'))
 	RequestLogTime(
-		RequestPost(
-			server,
-			'import/%s' % revision,
-			report.xml()
-		)
+		RequestImport(server, revision, report.xml())
 	).act()
