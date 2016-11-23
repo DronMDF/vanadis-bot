@@ -3,7 +3,7 @@ from bot import RequestImport
 from test import FakeServer
 
 
-class TestRequestPost(TestCase):
+class TestRequestImport(TestCase):
 	def testUrlFormer(self):
 		# Given
 		server = FakeServer()
