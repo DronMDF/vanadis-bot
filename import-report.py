@@ -23,9 +23,9 @@ for o, v in opts:
 		host = v
 
 server = Server(host, project)
+filelist = Filelist('<revision/>')
 
 for a in args:
-	filelist = Filelist()
 	report = Report(open(a, 'r'), filelist)
 	RequestLogTime(
 		RequestImport(server, revision, report.xml())
