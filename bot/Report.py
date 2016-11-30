@@ -3,12 +3,12 @@ from . import Xml
 
 
 class File:
-	def __init__(self, path, issues):
-		self.path = path
+	def __init__(self, oid, issues):
+		self.id = oid
 		self.issues = issues
 
 	def print(self, media):
-		media.write(path=self.path)
+		media.write(id=self.id)
 		for i in self.issues:
 			media.write(issue=i)
 
@@ -25,7 +25,7 @@ class Report:
 
 		request = Xml('files')
 		for f, ii in files.items():
-			file = File(f, ii)
+			file = File(filelist.fileid(f), ii)
 			request.write(file=file)
 		self.text = request.xml()
 

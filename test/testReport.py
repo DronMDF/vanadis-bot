@@ -7,6 +7,9 @@ class FakeFilelist:
 	def canonize(self, filename):		# pylint: disable=unused-argument
 		return 'common/pid_output.c'
 
+	def fileid(self, filename):		# pylint: disable=unused-argument
+		return '5HnvTkwj'
+
 
 class TestReport(TestCase):
 	def testSimpleReport(self):
@@ -15,7 +18,7 @@ class TestReport(TestCase):
 		# When
 		report = Report(stream, FakeFilelist())
 		# Then
-		expected = ('<file><path>common/pid_output.c</path><issue><line>101</line>'
+		expected = ('<file><id>5HnvTkwj</id><issue><line>101</line>'
 			'<position>30</position><message>warning: '
 			'implicit conversion</message></issue></file>')
 		self.assertIn(expected, report.xml())
