@@ -13,4 +13,4 @@ class TestRequestRevision(TestCase):
 		request.act()
 		# Then
 		self.assertEqual(server.method, 'GET')
-		self.assertEqual(server.url, revision + '?view=full')
+		self.assertEqual(server.url, revision + '?view=recursive')

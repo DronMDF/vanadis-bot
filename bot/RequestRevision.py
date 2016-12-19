@@ -5,4 +5,4 @@ class RequestRevision:
 		self.revision = revision
 
 	def act(self):
-		return self.server.get(self.revision + '?view=full')
+		return self.server.get(self.revision + '?view=recursive')
