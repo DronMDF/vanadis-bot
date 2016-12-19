@@ -6,7 +6,7 @@ from xml.etree import ElementTree
 class Filelist:
 	def __init__(self, xml):
 		root = ElementTree.fromstring(xml)
-		self.paths = {f.findtext('path'): f.findtext('id') for f in root.findall('file')}
+		self.paths = {f.findtext('name'): f.findtext('id') for f in root.findall('file')}
 
 	def canonize(self, filename):
 		fn = normpath(filename)
